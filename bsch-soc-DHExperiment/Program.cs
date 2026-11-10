@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
+using System.Diagnostics;
 
 namespace bsch_soc_DHExperiment
 {
@@ -12,6 +14,13 @@ namespace bsch_soc_DHExperiment
     {
         static void Main(string[] args)
         {
+            //DiscreteLogAttack eve = new DiscreteLogAttack(23, 5);
+            //var key = eve.Attack(8, out BigInteger iterations, out double elapsedMs);
+            //Console.WriteLine($"Recovered private key: {key}");
+            //Console.WriteLine($"Iterations: {iterations}");
+            //Console.WriteLine($"Elapsed time: {elapsedMs} ms");
+
+
             Console.WriteLine("\nDiffie-Hellman Experiment");
             Console.WriteLine("=========================");
 

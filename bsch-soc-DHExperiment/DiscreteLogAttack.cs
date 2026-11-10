@@ -46,8 +46,24 @@ namespace bsch_soc_DHExperiment
             iterations = 0;
             elapsedMs = 0;
 
-            // TODO: Implement the brute force discrete logarithm attack.
-            throw new NotImplementedException("Implement the attack here.");
+            var current = _g % _p;
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            for (BigInteger x = 1; x <= MaxIterations && x <= _p - 2; x++)
+            {
+                iterations++;
+                if (current == publicKey)
+                {
+                    stopwatch.Stop();
+                    elapsedMs = stopwatch.Elapsed.TotalMilliseconds;
+                    return x;
+                }
+
+                current = (current * _g) % _p;
+            }
+
+            stopwatch.Stop();
+            elapsedMs = stopwatch.Elapsed.TotalMilliseconds;
+            return -1; // Not found within MaxIterations
         }
     }
 }
